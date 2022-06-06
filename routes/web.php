@@ -16,4 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function(){
     Route::get('/', 'StartController@index');
     Route::get('books', 'StartController@books');
+
 });
+
+Route::group(['middleware' => 'auth', 'namespace' => 'App\Http\Controllers'], function(){
+    Route::get('/admin', 'AdminController@index');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

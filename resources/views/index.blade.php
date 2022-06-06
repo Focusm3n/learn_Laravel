@@ -8,6 +8,8 @@
     <title>Привет веб-страницы</title>
 </head>
 <body>
+<h1>Авторы</h1>
+<a href="/login">Авторизироваться</a>
 @foreach($users as $key => $user)
     <ul><a href="#"> {{$user->name}}</a>
         @foreach($user->books as $book)
